@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>종합 쇼핑몰 브랜드 네이밍 및 시각화 제안</title>
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons (CDN) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-gray-50 font-sans min-h-screen">
+
+    <!-- React의 App이 렌더링될 메인 컨테이너 -->
+    <div id="app"></div>
+
+    <script>
+        // 브랜드 데이터 세팅
+        const brands = [
+            {
+                id: 'evric',
+                name: '에브릭',
+                engName: 'Evric',
+                concept: 'Everything(모든 것) + Click(클릭)',
+                description: '일상용품부터 전문 용품까지, 정말 방대한 카테고리의 모든 상품을 클릭 한 번에 다 살 수 있는 대중적이고 친근한 종합몰',
+                slogan: '"내 일상의 모든 것, 원클릭 에브릭"',
+                bgColor: 'bg-blue-600',
+                textColor: 'text-blue-600',
+                ringColor: 'ring-blue-500',
+                hexColor: '#2563eb', // border-color 용도
+                gradient: 'from-blue-500 to-cyan-400',
+                iconName: 'mouse-pointer-2',
+                target: '남녀노소 누구나 쉽고 빠르게 이용하는 대중적인 종합 쇼핑 플랫폼',
+                logoSvg: `
+                    <svg viewBox="0 0 200 80" class="h-20 w-auto">
+                        <circle cx="30" cy="40" r="20" fill="url(#evric-grad)" opacity="0.8" />
+                        <circle cx="50" cy="40" r="20" fill="url(#evric-grad-2)" opacity="0.9" />
+                        <path d="M55 45 L65 60 L60 65 L45 55 Z" fill="#1e3a8a" />
+                        <path d="M50 40 L65 55 L70 45 Z" fill="#3b82f6" />
+                        <text x="85" y="52" font-family="sans-serif" font-size="36" font-weight="900" fill="#1e3a8a" letter-spacing="-1">evric</text>
+                        <circle cx="178" cy="40" r="4" fill="#06b6d4" />
+                        <defs>
+                            <linearGradient id="evric-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#3b82f6" />
+                                <stop offset="100%" stop-color="#06b6d4" />
+                            </linearGradient>
+                            <linearGradient id="evric-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#2563eb" />
+                                <stop offset="100%" stop-color="#1d4ed8" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                `
+            },
+            {
+                id: 'macim',
+                name: '마침',
+                engName: 'Macim',
+                concept: '"마침 딱 필요했던!" + Maximum(최대치)',
+                description: "고급스러운 영문 형태지만, 소리 내어 읽으면 '고객이 마침 찾던 바로 그 상품을 적시에 제안한다'는 통쾌한 뜻을 가진 프리미엄 큐레이션 몰",
+                slogan: '"당신이 찾던 최대치의 만족, 마침(Macim)"',
+                bgColor: 'bg-zinc-900',
+                textColor: 'text-zinc-900',
+                ringColor: 'ring-zinc-800',
+                hexColor: '#18181b',
+                gradient: 'from-zinc-800 to-zinc-950',
+                iconName: 'check-circle-2',
+                target: '가심비와 퀄리티를 중시하며, 나를 위한 맞춤 제안을 원하는 스마트 컨슈머',
+                logoSvg: `
+                    <svg viewBox="0 0 240 80" class="h-20 w-auto">
+                        <!-- 세련된 M 심볼 -->
+                        <path d="M20 60 L30 20 L45 50 L60 20 L70 60" fill="none" stroke="#18181b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+                        <!-- 포인트 닷 -->
+                        <circle cx="70" cy="70" r="4" fill="#d4af37" />
+                        <!-- 텍스트 및 하단 라인 포인트 -->
+                        <text x="90" y="52" font-family="serif" font-size="38" font-weight="bold" fill="#18181b" letter-spacing="1">Macim</text>
+                        <path d="M90 60 L190 60" stroke="#e4e4e7" stroke-width="2" />
+                        <path d="M150 60 L190 60" stroke="#d4af37" stroke-width="2" />
+                    </svg>
+                `
+            },
+            {
+                id: 'dait',
+                name: '다잇',
+                engName: 'Dait',
+                concept: '다(All) + It(그것) / "다 있다"',
+                description: '"이 쇼핑몰엔 필요한 게 다 있다!"는 가장 대중적이고 직관적인 언어유희를 활용한 유쾌하고 활기찬 쇼핑몰',
+                slogan: '"찾는 건 다 있다, 쇼핑의 정답 다잇!"',
+                bgColor: 'bg-orange-500',
+                textColor: 'text-orange-500',
+                ringColor: 'ring-orange-400',
+                hexColor: '#f97316',
+                gradient: 'from-orange-400 to-red-500',
+                iconName: 'shopping-bag',
+                target: '가성비와 다양성을 추구하며, 일상적인 생필품부터 트렌드 상품까지 한 번에 구매하는 실용주의 소비자',
+                logoSvg: `
+                    <svg viewBox="0 0 200 80" class="h-20 w-auto">
+                        <path d="M25 25 C 45 25, 55 35, 55 45 C 55 55, 45 65, 25 65 L 25 25 Z" fill="url(#dait-grad)" />
+                        <path d="M25 25 L 25 65" stroke="#ffffff" stroke-width="6" stroke-linecap="round" />
+                        <path d="M35 35 Q 45 45, 35 55" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" />
+                        <text x="65" y="54" font-family="sans-serif" font-size="42" font-weight="900" fill="#f97316" letter-spacing="-2">Dait</text>
+                        <text x="145" y="54" font-family="sans-serif" font-size="42" font-weight="900" fill="#ef4444" letter-spacing="-2">!</text>
+                        <defs>
+                            <linearGradient id="dait-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#f97316" />
+                                <stop offset="100%" stop-color="#ef4444" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                `
+            },
+            {
+                id: 'allroute',
+                name: '올루트',
+                engName: 'All-Route',
+                concept: 'All(모든) + Route(경로/유통망)',
+                description: '생산자부터 소비자까지, 모든 상품이 막힘없이 통하고 전달되는 거대 유통망을 의미하는 신뢰감 높은 네이밍',
+                slogan: '"세상의 모든 가치를 잇는 길, 올루트"',
+                bgColor: 'bg-emerald-600',
+                textColor: 'text-emerald-600',
+                ringColor: 'ring-emerald-500',
+                hexColor: '#059669',
+                gradient: 'from-emerald-500 to-teal-600',
+                iconName: 'route',
+                target: '신선식품, 직배송, 산지직송 등 유통의 신뢰도와 배송 속도를 중요하게 생각하는 고객',
+                logoSvg: `
+                    <svg viewBox="0 0 260 80" class="h-20 w-auto">
+                        <path d="M20 60 L40 20 L60 60" fill="none" stroke="#059669" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M30 40 L70 40" fill="none" stroke="#059669" stroke-width="8" stroke-linecap="round" />
+                        <path d="M75 60 L75 20 C 90 20, 95 30, 85 40 L 75 40 L 95 60" fill="none" stroke="#0d9488" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M15 50 Q 50 80, 85 50 T 105 50" fill="none" stroke="#10b981" stroke-width="4" stroke-linecap="round" opacity="0.6" stroke-dasharray="6,4" />
+                        <text x="110" y="52" font-family="sans-serif" font-size="32" font-weight="800" fill="#064e3b" letter-spacing="-1">All-Route</text>
+                    </svg>
+                `
+            }
+        ];
+
+        // 상태 관리
+        let activeTab = 0;
+
+        // 탭 변경 함수
+        window.setActiveTab = function(index) {
+            activeTab = index;
+            render();
+        };
+
+        // 화면 렌더링 함수
+        function render() {
+            const app = document.getElementById('app');
+            const currentBrand = brands[activeTab];
+
+            // 탭 버튼들 생성
+            const tabButtonsHtml = brands.map((brand, index) => {
+                const isActive = activeTab === index;
+                const activeClasses = isActive 
+                    ? `${brand.bgColor} text-white ring-2 ring-offset-2 ${brand.ringColor} transform scale-105` 
+                    : `bg-white text-gray-500 hover:bg-gray-100 hover:text-gray-900`;
+
+                return `
+                    <button
+                        onclick="setActiveTab(${index})"
+                        class="px-6 py-3 rounded-full text-sm font-bold transition-all duration-300 ease-in-out flex items-center gap-2 shadow-sm ${activeClasses}"
+                    >
+                        <i data-lucide="${brand.iconName}" class="w-[18px] h-[18px]"></i>
+                        ${brand.name} (${brand.engName})
+                    </button>
+                `;
+            }).join('');
+
+            // 전체 HTML 구성
+            app.innerHTML = `
+                <div class="flex flex-col items-center py-12 px-4 sm:px-6 lg:px-8">
+                    <div class="w-full max-w-5xl">
+                        <header class="text-center mb-12">
+                            <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight">
+                                종합 쇼핑몰 브랜드 네이밍 및 시각화 제안
+                            </h1>
+                            <p class="text-lg text-gray-600">
+                                각 브랜드의 고유한 컨셉과 시각적 아이덴티티를 확인해 보세요.
+                            </p>
+                        </header>
+
+                        <!-- Tab Navigation -->
+                        <div class="flex flex-wrap justify-center gap-2 mb-8 border-b border-gray-200 pb-4">
+                            ${tabButtonsHtml}
+                        </div>
+
+                        <!-- Main Content Area -->
+                        <div class="bg-white rounded-3xl shadow-xl overflow-hidden transition-all duration-500 transform">
+                            <div class="h-4 w-full bg-gradient-to-r ${currentBrand.gradient}"></div>
+                            
+                            <div class="p-8 md:p-12 flex flex-col md:flex-row gap-12 items-center md:items-start">
+                                
+                                <!-- Logo Visualization Section -->
+                                <div class="w-full md:w-5/12 flex flex-col items-center justify-center p-8 bg-gray-50 rounded-2xl border border-gray-100 relative overflow-hidden group">
+                                    <div class="absolute top-0 right-0 p-4 opacity-10">
+                                        <i data-lucide="${currentBrand.iconName}" class="w-[120px] h-[120px]"></i>
+                                    </div>
+                                    <p class="text-sm font-semibold text-gray-400 mb-6 uppercase tracking-widest">Brand Logo Concept</p>
+                                    <div class="bg-white p-6 rounded-xl shadow-sm w-full flex justify-center hover:shadow-md transition-shadow">
+                                        ${currentBrand.logoSvg}
+                                    </div>
+                                    <p class="text-xs text-gray-400 mt-6 text-center">
+                                        *제안을 돕기 위해 코드로 임시 구현된 시각화 시안입니다.
+                                    </p>
+                                </div>
+
+                                <!-- Brand Details Section -->
+                                <div class="w-full md:w-7/12 flex flex-col gap-6">
+                                    <div>
+                                        <h2 class="text-4xl font-extrabold mb-2 flex items-baseline gap-3 ${currentBrand.textColor}">
+                                            ${currentBrand.name} 
+                                            <span class="text-2xl font-medium text-gray-400">${currentBrand.engName}</span>
+                                        </h2>
+                                        <h3 class="text-xl font-bold text-gray-800 border-l-4 pl-3 py-1" style="border-color: ${currentBrand.hexColor}">
+                                            ${currentBrand.slogan}
+                                        </h3>
+                                    </div>
+
+                                    <div class="space-y-6 mt-4">
+                                        <div class="bg-gray-50 p-5 rounded-xl border border-gray-100">
+                                            <h4 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2 flex items-center gap-2">
+                                                <span class="w-2 h-2 rounded-full ${currentBrand.bgColor}"></span>
+                                                Naming Concept
+                                            </h4>
+                                            <p class="text-lg font-semibold text-gray-900 mb-2">
+                                                ${currentBrand.concept}
+                                            </p>
+                                            <p class="text-gray-600 leading-relaxed">
+                                                ${currentBrand.description}
+                                            </p>
+                                        </div>
+
+                                        <div class="bg-gray-50 p-5 rounded-xl border border-gray-100">
+                                            <h4 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2 flex items-center gap-2">
+                                                <span class="w-2 h-2 rounded-full ${currentBrand.bgColor}"></span>
+                                                Target & Positioning
+                                            </h4>
+                                            <p class="text-gray-700 leading-relaxed">
+                                                ${currentBrand.target}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            `;
+
+            // HTML이 주입된 후, Lucide 아이콘 활성화
+            lucide.createIcons();
+        }
+
+        // 초기 화면 렌더링
+        window.onload = () => {
+            render();
+        };
+    </script>
+</body>
+</html>
